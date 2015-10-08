@@ -6,6 +6,10 @@
   "scripts": {
     "start": "scripts/watch.sh"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/HuygensING/hire-force-directed-graph.git"
+  },
   "author": "",
   "license": "ISC",
   "devDependencies": {
