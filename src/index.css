@@ -1,0 +1,26 @@
+svg .link {
+  fill: none;
+  stroke: #e0e0e0;
+  stroke-width: 1.5px;
+}
+
+svg circle {
+  fill: #ccc;
+  stroke: #333;
+  stroke-width: 0;
+}
+
+svg text {
+  font: 10px sans-serif;
+  fill: #666;
+}
+
+svg text.label.person {
+	fill: #000;
+	cursor: pointer;
+}
+
+svg text.label.document {
+	fill: #000;
+	cursor: pointer;
+}
