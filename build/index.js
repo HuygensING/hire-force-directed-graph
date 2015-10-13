@@ -9451,9 +9451,12 @@ var ForceDirectedGraph = (function (_React$Component) {
 				return;
 			}
 			if (ev.deltaY < 0) {
-				this.linkDistance += 100;
+				this.linkDistance += 25;
 			} else {
-				this.linkDistance -= 100;
+				this.linkDistance -= 25;
+			}
+			if (this.linkDistance < 100) {
+				this.linkDistance = 100;
 			}
 			this.graph.force.charge(-this.linkDistance * 2).linkDistance(this.linkDistance).start();
 			return ev.preventDefault();
