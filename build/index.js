@@ -9376,7 +9376,7 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
 
-var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
+var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; desc = parent = undefined; continue _function; } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
@@ -9387,6 +9387,10 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 var _react = _dereq_("react");
 
 var _react2 = _interopRequireDefault(_react);
+
+var _reactDom = _dereq_("react-dom");
+
+var _reactDom2 = _interopRequireDefault(_reactDom);
 
 var _graphJs = _dereq_("./graph.js");
 
@@ -9424,7 +9428,7 @@ var ForceDirectedGraph = (function (_React$Component) {
 		key: "componentDidMount",
 		value: function componentDidMount() {
 			window.addEventListener("resize", this.resizeListener);
-			var node = _react2["default"].findDOMNode(this);
+			var node = _reactDom2["default"].findDOMNode(this);
 			var rect = node.getBoundingClientRect();
 
 			this.graph = (0, _graphJs2["default"])(this.props.data, this.props.filteredRelationTypes, node, rect.width, rect.height, this.linkDistance, this.props.onEntityClick, this.props.onNodeClick);
@@ -9432,7 +9436,7 @@ var ForceDirectedGraph = (function (_React$Component) {
 	}, {
 		key: "componentWillReceiveProps",
 		value: function componentWillReceiveProps(nextProps) {
-			var node = _react2["default"].findDOMNode(this);
+			var node = _reactDom2["default"].findDOMNode(this);
 			var rect = node.getBoundingClientRect();
 			if (this.graph) {
 				this.graph.svg.remove();
@@ -9468,7 +9472,7 @@ var ForceDirectedGraph = (function (_React$Component) {
 				return;
 			}
 
-			var node = _react2["default"].findDOMNode(this);
+			var node = _reactDom2["default"].findDOMNode(this);
 			var rect = node.getBoundingClientRect();
 			this.graph.svg.attr('width', rect.width).attr('height', rect.height);
 			this.graph.force.size([rect.width, rect.height]).resume();
@@ -9524,5 +9528,5 @@ ForceDirectedGraph.propTypes = {
 exports["default"] = ForceDirectedGraph;
 module.exports = exports["default"];
 
-},{"./graph.js":3,"insert-css":2,"react":"react"}]},{},[4])(4)
+},{"./graph.js":3,"insert-css":2,"react":"react","react-dom":"react-dom"}]},{},[4])(4)
 });

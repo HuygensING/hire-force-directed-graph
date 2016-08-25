@@ -1,4 +1,5 @@
 import React from "react";
+import ReactDOM from "react-dom";
 import getGraph from "./graph.js";
 
 let fs = require("fs");
@@ -24,7 +25,7 @@ class ForceDirectedGraph extends React.Component {
 
 	componentDidMount() {
 		window.addEventListener("resize", this.resizeListener);
-		let node = React.findDOMNode(this);
+		let node = ReactDOM.findDOMNode(this);
 		let rect = node.getBoundingClientRect();
 
 		this.graph = getGraph(
@@ -37,7 +38,7 @@ class ForceDirectedGraph extends React.Component {
 	}
 
 	componentWillReceiveProps(nextProps) {
-		let node = React.findDOMNode(this);
+		let node = ReactDOM.findDOMNode(this);
 		let rect = node.getBoundingClientRect();
 		if(this.graph) { this.graph.svg.remove(); }
 		this.graph = getGraph(
@@ -72,7 +73,7 @@ class ForceDirectedGraph extends React.Component {
 	onResize() {
 		if(this.graph === null) { return; }
 
-		let node = React.findDOMNode(this);
+		let node = ReactDOM.findDOMNode(this);
 		let rect = node.getBoundingClientRect();
 		this.graph.svg.attr('width', rect.width).attr('height', rect.height);
 		this.graph.force.size([rect.width, rect.height]).resume();

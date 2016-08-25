@@ -4,6 +4,7 @@ node_modules/.bin/watchify src/index.jsx \
   --detect-globals false \
   --extension=.jsx \
   --external react \
+  --external react-dom \
   --outfile 'node_modules/.bin/derequire > build/index.js' \
   --standalone ForceDirectedGraph \
   --transform [ babelify ] \
